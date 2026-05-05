@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stone">#1C1C1E</color>
+    <color name="gold">#C9A14A</color>
+    <color name="cream">#E8E4D8</color>
+    <color name="muted_gold">#A88A3F</color>
+    <color name="ic_launcher_background">#1C1C1E</color>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Top accent bar -->
+    <path
+        android:pathData="M30,32 L78,32 L78,37 L30,37 Z"
+        android:fillColor="#C9A14A"
+        android:fillAlpha="0.85" />
+
+    <!-- Bottom accent bar -->
+    <path
+        android:pathData="M30,71 L78,71 L78,76 L30,76 Z"
+        android:fillColor="#C9A14A"
+        android:fillAlpha="0.85" />
+
+    <!-- Sigma outline (Σ) -->
+    <path
+        android:pathData="M36,42 L72,42 L72,47 L46,47 L56,54 L46,61 L72,61 L72,66 L36,66 L36,61 L48,54 L36,47 Z"
+        android:fillColor="#C9A14A" />
+</vector>

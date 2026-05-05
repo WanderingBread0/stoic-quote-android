@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Stoic Quote</string>
+    <string name="widget_label">Stoic Quote</string>
+    <string name="widget_description">A daily Stoic quote from Marcus Aurelius, Epictetus, Seneca, and others.</string>
+</resources>

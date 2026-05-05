@@ -1,24 +1,59 @@
 # Stoic Quote — Android
 
-Android port of the [Stoic Quote Cinnamon desklet](https://github.com/WanderingBread0/stoic-quote-desklet). Single-activity app that shows one Stoic quote per day from a 63-entry curated dataset.
+Android port of the [Stoic Quote Cinnamon desklet](https://github.com/WanderingBread0/stoic-quote-desklet). Daily curated Stoic quote, on your phone as a homescreen widget or a full-screen app.
 
-## What's in this repo
+## Install on your phone
+
+1. Open the [Latest release](https://github.com/WanderingBread0/stoic-quote-android/releases/tag/latest) page on your phone's browser.
+2. Download `app-debug.apk`.
+3. Open the file. Android will ask permission to install from this source — allow it.
+4. Add the widget: long-press your home screen → **Widgets** → find **Stoic Quote** → drag to where you want it.
+
+You can also open the app from the launcher to see the same quote in full-screen — tap the quote to advance to the next one (resets at midnight).
+
+## What it does
+
+- 63 curated Stoic quotes from Marcus Aurelius, Epictetus, Seneca, Musonius Rufus, Chrysippus, Cleanthes, Zeno of Citium.
+- Same quote of the day for everyone — a deterministic hash of the date picks the quote, so it doesn't reshuffle on restart.
+- Tap the quote (in the app or the widget) to advance to another. The advance counter resets at midnight.
+- Auto-updates the widget at midnight with the new day's quote.
+- Offline. No accounts, no analytics, no permissions, no network access.
+
+## Build
+
+The CI workflow at `.github/workflows/build-apk.yml` builds the APK on every push to `main` and updates the `latest` release with the new file.
+
+To build locally:
+```bash
+gradle wrapper --gradle-version 8.7
+./gradlew assembleDebug
+# APK will be at app/build/outputs/apk/debug/app-debug.apk
+```
+
+Requires JDK 17 and Android SDK with platform 34.
+
+## Project layout
 
 ```
-data/
-  quotes.json          — 63 quotes (text/author/source). Bundle this as an asset.
-reference/
-  desklet.js           — original Cinnamon desklet — DO NOT port literally
-  stylesheet.css       — visual styling cues (colors, spacing, font sizes)
-  icon.svg / icon.png  — source artwork for the app icon
-  screenshot.png       — what the desklet looks like
-  i18n/strings.pot     — gettext template with all 132 translatable strings
-SPEC.md                — what the app should do (read this first)
+app/                          Android module
+  build.gradle.kts
+  src/main/
+    AndroidManifest.xml
+    assets/quotes.json        63 quotes, bundled
+    kotlin/com/orion/stoicquote/
+      MainActivity.kt         Compose UI for the app
+      StoicQuoteWidget.kt     Homescreen widget (AppWidgetProvider)
+      QuoteRepo.kt            djb2 hash, today's quote
+      Prefs.kt                Manual offset, midnight reset, settings
+    res/
+      layout/widget.xml       Widget RemoteViews layout
+      xml/widget_info.xml     Widget configuration
+      drawable/               Backgrounds and adaptive launcher icon
+      values/                 strings, colors, themes
+data/quotes.json              Source data (also bundled into app/src/main/assets/)
+reference/                    Original desklet files for reference
+SPEC.md                       Behavior spec
 ```
-
-## Status
-
-Empty Android project — to be built. See `SPEC.md` for the full behavior spec.
 
 ## License
 
