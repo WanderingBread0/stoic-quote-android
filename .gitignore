@@ -11,4 +11,8 @@ captures/
 *.aab
 *.keystore
 *.jks
+# Exception: the debug keystore is committed on purpose so CI signs every
+# build with the same key (see app/build.gradle.kts signingConfigs.debug).
+# It is not used for release builds and holds no real secret.
+!app/debug.keystore
 .idea/

@@ -21,6 +21,20 @@ android {
         }
     }
 
+    // Pin the debug signing key to a committed keystore instead of each
+    // machine/CI runner's own ~/.android/debug.keystore. CI runners start
+    // fresh every build with no such file, so without this every CI-built
+    // APK got a brand-new random debug key and could never install as an
+    // update over the previous one (signature mismatch).
+    signingConfigs {
+        getByName("debug") {
+            storeFile = file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
