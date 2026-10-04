@@ -13,8 +13,8 @@ You can also open the app from the launcher to see the same quote in full-screen
 
 ## What it does
 
-- 63 curated Stoic quotes from Marcus Aurelius, Epictetus, Seneca, Musonius Rufus, Chrysippus, Cleanthes, Zeno of Citium.
-- Same quote of the day for everyone — a deterministic hash of the date picks the quote, so it doesn't reshuffle on restart.
+- 143 curated Stoic quotes from Marcus Aurelius, Epictetus, Seneca, Musonius Rufus, Chrysippus, Cleanthes, Zeno of Citium, and other Stoic and proto-Stoic thinkers.
+- Same quote of the day for everyone — a deterministic per-cycle shuffle picks the quote, so it doesn't reshuffle on restart, cycles through every quote once before repeating, and matches the desklet on the same date.
 - Tap the quote (in the app or the widget) to advance to another. The advance counter resets at midnight.
 - Auto-updates the widget at midnight with the new day's quote.
 - Offline. No accounts, no analytics, no permissions, no network access.
